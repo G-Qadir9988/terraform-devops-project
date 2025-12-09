@@ -1,0 +1,54 @@
+# --- .github/workflows/terraform.yml ---
+name: 'Terraform CI/CD Pipeline'
+
+on:
+  push:
+    branches:
+      - main # Triggers on push to the main branch
+  pull_request:
+    branches:
+      - main # Triggers on pull requests targeting main
+
+jobs:
+  terraform:
+    name: 'Terraform Workflow'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.0 # Use a specific, stable version
+
+      # *** NOTE: This step is CRITICAL for deployment ***
+      # You need to configure AWS credentials in GitHub Secrets
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1 # Must match the region in main.tf
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Format Check
+        id: fmt
+        run: terraform fmt -check
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Plan (on PR)
+        id: plan
+        if: github.event_name == 'pull_request'
+        run: terraform plan -no-color
+
+      - name: Terraform Apply (on Push to main)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve
