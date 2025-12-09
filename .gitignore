@@ -1,0 +1,10 @@
+# Git & VS Code files
+.vscode/
+.DS_Store
+
+# Terraform files
+.terraform/
+*.tfplan
+*.tfstate
+*.tfstate.backup
+**/ sensitive.tfvars
