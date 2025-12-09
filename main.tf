@@ -14,12 +14,15 @@ terraform {
 # The credentials will be picked up from the AWS CLI config locally,
 # or from GitHub Secrets/OIDC in the CI/CD pipeline.
 provider "aws" {
-  region = "us-east-1" # Choose your desired region
+  region = "us-east-1" # Must match the region used in GitHub Actions workflow (terraform.yml)
 }
 
 # 3. Define a sample resource (an S3 bucket)
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "my-devops-project-bucket-abc-123-$(random_id.id.hex)" # Bucket names must be globally unique!
+  # FIX: Changed from $(...) to ${...} for correct Terraform interpolation.
+  # Also slightly simplified the name to ensure compliance.
+  bucket = "my-devops-project-bucket-abc-${random_id.id.hex}"
+
   tags = {
     Name        = "DevOps Project Bucket"
     Environment = "Dev"
