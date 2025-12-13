@@ -87,4 +87,8 @@ terraform workspace select dev
 terraform destroy
 # Type 'yes' when prompted to confirm the deletion.
 ** 👨🏻‍💻 Author and Contact Information
-DetailsValueAuthor NameGhulam QadirTitleIT StudentEmail📧 gqitspecialist@gmail.comLinkedIn🔗 https://www.linkedin.com/in/ghulam-qadir-07a982365Portfolio🌐 https://ghulam-qadir.netlify.app/Instagram📸 https://www.instagram.com/coreit.techFacebook📘 https://www.facebook.com/share/1AmgLDUnc9/YouTube🎥 https://www.youtube.com/channel/UCMzACb-lwCjc7GGw6vsYUdQ
+## 📌 Developed By
+**Ghulam Qadir** – Sole Developer  
+- 🌐 Portfolio: [https://ghulam-qadir.netlify.app/](https://ghulam-qadir.netlify.app/)  
+- 💼 LinkedIn: [www.linkedin.com/in/ghulam-qadir-07a982365](https://www.linkedin.com/in/ghulam-qadir-07a982365)  
+- 📧 Email: gqitspecialist@gmail.com  
