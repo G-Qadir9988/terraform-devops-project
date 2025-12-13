@@ -60,8 +60,11 @@ cd terraform-devops-project
 terraform init
 
 
-### 3. Deploy the dev EnvironmentTo deploy the Development environment, you must create and select the dev workspace.Bash
+## 3. Deploy the dev Environment
 
+To deploy the Development environment, you must create and select the dev workspace.
+
+```bash
 # 1. Create the dev workspace (this requires the DynamoDB lock table to work!)
 terraform workspace new dev
 
@@ -70,25 +73,3 @@ terraform workspace new dev
 git add .
 git commit -m "feat: Deploying infrastructure to dev environment"
 git push
-
-### 4. Deploy the stage Environment (Promotion)To deploy the next isolated environment, switch the workspace and push any code change.Bash
-
-# 1. Switch to the stage workspace
-terraform workspace new stage
-
-# 2. Push a code change (e.g., changing the instance type in main.tf)
-git add .
-git commit -m "fix: Promoting modular code to stage environment"
-git push
-### 5. Cleanup (Destroy Resources)To avoid incurring AWS costs, always select the environment and destroy the resources.Bash# 1. Select the environment you want to destroy
-terraform workspace select dev 
-
-# 2. Destroy all resources in that environment
-terraform destroy
-# Type 'yes' when prompted to confirm the deletion.
-** 👨🏻‍💻 Author and Contact Information
-## 📌 Developed By
-**Ghulam Qadir** – Sole Developer  
-- 🌐 Portfolio: [https://ghulam-qadir.netlify.app/](https://ghulam-qadir.netlify.app/)  
-- 💼 LinkedIn: [www.linkedin.com/in/ghulam-qadir-07a982365](https://www.linkedin.com/in/ghulam-qadir-07a982365)  
-- 📧 Email: gqitspecialist@gmail.com  
