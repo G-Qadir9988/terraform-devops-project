@@ -51,7 +51,7 @@ The CI/CD pipeline requires secure access to your AWS account. You must configur
 
 Clone the project and initialize Terraform to connect to the remote backend.
 
-```bash
+
 # Clone the repository
 git clone <repository_url>
 cd terraform-devops-project
