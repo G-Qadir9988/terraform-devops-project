@@ -101,11 +101,7 @@ terraform destroy
 # Type 'yes' when prompted to confirm the deletion.
 
 ```
-## 📌 Developed By
-**Ghulam Qadir** – Sole Developer  
-- 🌐 Portfolio: [https://ghulam-qadir.netlify.app/](https://ghulam-qadir.netlify.app/)  
-- 💼 LinkedIn: [www.linkedin.com/in/ghulam-qadir-07a982365](https://www.linkedin.com/in/ghulam-qadir-07a982365)  
-- 📧 Email: gqitspecialist@gmail.com 
+
 
 
 
